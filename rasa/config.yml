@@ -1,0 +1,153 @@
+version: "3.1"
+recipe: default.v1
+language: en
+
+pipeline:
+  # Add SpacyNLP at the beginning to initialize the SpaCy model
+  - name: SpacyNLP
+    model: "en_core_web_md"
+
+  # TOKENIZATION - SpaCy for better financial terms
+  - name: SpacyTokenizer
+    model: "en_core_web_md"
+  - name: RegexFeaturizer
+    case_sensitive: false
+  - name: LexicalSyntacticFeaturizer
+    features:
+      - ["low", "title", "upper"]
+      - ["BOS", "EOS", "low", "upper", "title", "digit"]
+      - ["low", "title", "upper"]
+  
+  # FEATURIZATION - Optimized for financial domain
+  - name: CountVectorsFeaturizer
+    analyzer: "word"
+    min_ngram: 1
+    max_ngram: 3
+    max_features: 10000
+    OOV_token: "[UNK]"
+    use_lemma: true
+    token_pattern: r"(?u)\b\w\w+\b"
+  
+  - name: CountVectorsFeaturizer
+    analyzer: "char_wb"
+    min_ngram: 2
+    max_ngram: 4
+    max_features: 5000
+    use_augmentation: true
+    augmentation_factor: 30
+    
+  # WORD EMBEDDINGS - Now compatible with SpacyTokenizer
+  - name: SpacyFeaturizer
+    model: "en_core_web_md"
+    pooling: "mean"
+    
+  # INTENT CLASSIFICATION & ENTITY EXTRACTION
+  - name: DIETClassifier
+    epochs: 300
+    constrain_similarities: true
+    entity_recognition: true
+    intent_classification: true
+    use_masked_language_model: true
+    random_seed: 42
+    learning_rate: 0.001
+    
+    hidden_layers_sizes:
+      text: [512, 256]
+      label: [128, 64]
+    number_of_transformer_layers: 2
+    transformer_size: 256
+    
+    drop_rate: 0.1
+    drop_rate_dialogue: 0.1
+    drop_rate_label: 0.0
+    drop_rate_attention: 0.0
+    
+    loss_type: "cross_entropy"
+    similarity_type: "inner"
+    evaluate_every_number_of_epochs: 20
+    evaluate_on_number_of_examples: 0
+    
+    BILOU_flag: true
+    use_sparse_input_dropout: true
+    use_dense_input_dropout: true
+    
+  - name: EntitySynonymMapper
+  - name: DucklingEntityExtractor
+    url: http://localhost:8000
+    dimensions:
+      - amount-of-money
+      - number
+      - ordinal
+      - duration
+      - datetime
+    locale: "en_MY"
+    timezone: "Asia/Kuala_Lumpur"
+    
+  - name: ResponseSelector
+    epochs: 150
+    constrain_similarities: true
+    
+  - name: FallbackClassifier
+    threshold: 0.6
+    ambiguity_threshold: 0.05
+
+policies:
+  - name: MemoizationPolicy
+    max_history: 3
+    
+  - name: RulePolicy
+    core_fallback_threshold: 0.4
+    core_fallback_action_name: "action_default_fallback"
+    enable_fallback_prediction: true
+    
+  - name: UnexpecTEDIntentPolicy
+    max_history: 8
+    epochs: 200
+    
+    hidden_layers_sizes:
+      text: [256, 128]
+      label: [128, 64]
+    number_of_transformer_layers: 1
+    transformer_size: 256
+    
+    learning_rate: 0.001
+    batch_size: [64, 256]
+    
+    drop_rate: 0.1
+    drop_rate_dialogue: 0.1
+    
+  - name: TEDPolicy
+    max_history: 8
+    epochs: 200
+    
+    hidden_layers_sizes:
+      text: [256, 128]
+      label: [128, 64]
+      dialogue: [256, 128]
+    number_of_transformer_layers: 2
+    transformer_size: 256
+    
+    learning_rate: 0.001
+    batch_size: [64, 256]
+    
+    loss_type: "cross_entropy"
+    similarity_type: "inner"
+    
+    drop_rate: 0.1
+    drop_rate_dialogue: 0.1
+    drop_rate_attention: 0.0
+    
+    evaluate_every_number_of_epochs: 20
+    evaluate_on_number_of_examples: 0
+    
+    constrain_similarities: true
+    model_confidence: "softmax"
+
+assistant_id: enhanced_financial_assistant
+
+session_config:
+  session_expiration_time: 60
+  carry_over_slots_to_new_session: false
+
+debug_plots: false
+debug_mode: false

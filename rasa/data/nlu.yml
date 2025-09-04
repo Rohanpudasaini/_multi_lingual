@@ -1,0 +1,883 @@
+# nlu.yml - Focused on Topup Intent Only
+version: "3.1"
+
+nlu:
+- intent: greet
+  examples: |
+    - hey
+    - hello
+    - hi
+    - hello there
+    - good morning
+    - good evening
+    - hey there
+    - goodmorning
+    - goodevening
+    - good afternoon
+    - how are you 
+    - how do you do
+    - helo
+    - hiiiiii
+    - what's up
+    - hey there
+    - yo
+    - hi there, can you help?
+    - greetings!
+    - hiii
+    - Hello! 😃
+    - Hey! How are you?
+    - Good day!
+
+- intent: goodbye
+  examples: |
+    - goodbye
+    - bye
+    - see you later
+    - bye bye
+    - good night
+    - have a nice day
+    - see you around
+    - cya
+    - take care
+
+- intent: affirm
+  examples: |
+    - yes
+    - y
+    - yeah
+    - correct
+    - that's right
+    - indeed
+    - of course
+    - that sounds good
+    - proceed
+    - confirm
+    - go ahead
+    - continue
+
+- intent: deny
+  examples: |
+    - no
+    - n
+    - nope
+    - never
+    - I don't think so
+    - don't like that
+    - no way
+    - not really
+    - cancel
+    - stop
+    - abort
+
+- intent: bot_challenge
+  examples: |
+    - are you a bot?
+    - are you a human?
+    - am I talking to a bot?
+    - who are you?
+    - what are you?
+    - tell me about yourself
+
+- intent: ask_help
+  examples: |
+    - help
+    - I need help
+    - can you help me
+    - what can you do
+    - how does this work
+    - guide me
+    - support
+    - assistance
+    - what are your features
+
+- intent: topup_wallet
+  examples: |
+    - I want to topup [100](amount) to my wallet
+    - load my wallet with [100](amount) [rupees](currency)
+    - Add [50](amount) to my account
+    - Top up [200](amount) [RM](currency) to my wallet
+    - I want to add [300](amount) [ringgit](currency) to my wallet
+    - Load [500](amount) into my account
+    - Please topup [75](amount) to my wallet
+    - Add [1000](amount) [RM](currency) to my account
+    - I need to topup [250](amount) [ringgit](currency)
+    - Load [150](amount) [rupees](currency) into my wallet
+    - Deposit [800](amount) to my account
+    - Add money [400](amount) to my wallet
+    - I want to add [100](amount) from bank to my wallet
+    - Topup [500](amount) [ringgit](currency) to my account
+    - Load [350](amount) from my bank account
+    - Add [750](amount) [RM](currency) from bank to wallet
+    - I need to load [600](amount) into my account
+    - Put [200](amount) into my wallet
+    - Add [120](amount) to my wallet balance
+    - I want to deposit [950](amount) to my account
+    - Load [80](amount) [RM](currency) in my wallet
+    - Add funds [1500](amount) to my account
+    - I need to add [45](amount) [ringgit](currency) to wallet
+    - Topup my wallet with [300](amount)
+    - Load my account with [700](amount)
+    - Add [180](amount) [RM](currency) to wallet
+    - I want to put [550](amount) in my account
+    - Deposit [25](amount) [ringgit](currency) to wallet
+    - Load [900](amount) from bank into wallet
+    - Add [65](amount) [RM](currency) from my bank
+    - I need to topup my wallet [400](amount)
+    - Put [800](amount) [ringgit](currency) in my account
+    - Add money to my wallet
+    - I want to topup my account
+    - Load money to my wallet
+    - Add funds to my account
+    - I need to add money
+    - Topup my wallet
+    - Load my account
+    - Add money from bank
+    - I want to deposit money
+    - Put money in wallet
+    - I want to put [1000](amount) [RM](currency)into wallet.
+    - Add funds from bank account
+    - I need to load money
+    - Topup account from bank
+    - Add money via bank transfer
+    - Load wallet from my bank
+    - I want to add money to wallet
+    - Deposit money to my account
+    - Add cash to wallet
+    - Load funds to account
+    - I need to add funds
+    - Topup wallet from bank
+    - Add balance to account
+    - Load money from FPX
+    - I want to increase wallet balance
+    - Add money using bank
+    - Topup using bank transfer
+    - Load account via FPX
+    - I want to top up my wallet
+    - add money to my account
+    - could you help me add funds?
+    - topup cash, please
+    - need to recharge my wallet
+    - put [RM 150](amount) in
+    - can I deposit money?
+    - wallet topup for [200](amount)
+    - send money to my wallet
+    - I need to add [RM 50](amount)
+    - give me a wallet top-up
+    - I want to put [RM1,000](amount) in my wallet
+    - Put [300](amount) [USD](currency) into my account
+    - Load [600](amount) [singapore dollars](currency) into my wallet
+    - Can I add [200](amount) [dollars](currency) to my wallet?
+    - Recharge my account with [150](amount) [INR](currency)
+    - I'd like to top up [400](amount) from my credit card
+    - Transfer [50](amount) [SGD](currency) to my wallet
+    - Help me load [300](amount) [euros](currency) into my account
+    - Deposit [1000](amount) using debit card to wallet
+    - I need to recharge [250](amount) [MYR](currency) now
+    - Add [75](amount) [pounds](currency) to my balance
+    - Topup [500](amount) via online banking
+    - Load [350](amount) [yen](currency) from my savings
+    - Please add [600](amount) to my personal wallet
+    - I want to fund my account with [200](amount) [AUD](currency)
+    - Recharge wallet [150](amount) immediately
+    - Add [800](amount) [CAD](currency) from bank transfer
+    - Top up my balance by [400](amount)
+    - Load [120](amount) [rupees](currency) using UPI
+    - Deposit [950](amount) into my digital wallet
+    - I need [80](amount) [RM](currency) added please
+    - Fund my wallet [1500](amount) [dollars](currency)
+    - Add [45](amount) [ringgit](currency) via FPX
+    - Topup with [300](amount) from my linked bank
+    - Load account [700](amount) [INR](currency)
+    - Please put [180](amount) [RM](currency) in my wallet
+    - I want to recharge [550](amount) now
+    - Deposit [25](amount) [SGD](currency) to my account
+    - Add [900](amount) using card payment
+    - Load [65](amount) [RM](currency) from checking account
+    - Topup my wallet by [400](amount) [euros](currency)
+    - Put [800](amount) [pounds](currency) into balance
+    - Recharge my wallet please
+    - Can you add funds to my account?
+    - I need a top-up for my wallet
+    - Help with loading money into account
+    - Wallet recharge required
+    - Add some cash to my balance
+    - Top up from my debit card
+    - I want to fund my wallet
+    - Please deposit funds
+    - Load via credit card
+    - Add money through online transfer
+    - Recharge account balance
+    - Topup using UPI
+    - I need to boost my wallet
+    - Add from savings account
+    - Wallet funding please
+    - Deposit via bank app
+    - Load money quickly
+    - Top up my personal account
+    - Add balance via payment gateway
+    - Recharge with bank link
+    - I want to refill my wallet
+    - Please add to my funds
+    - Load up my account
+    - Topup through app
+    - Add money seamlessly
+    - Wallet top-up assistance
+    - Deposit funds now
+    - Recharge my balance
+    - Add via mobile banking
+    - I need wallet credit
+    - Top up using e-wallet
+    - Load from linked card
+    - Add money to balance
+    - Please fund account
+    - Wallet recharge help
+    - Topup my funds
+    - Add cash via transfer
+    - Recharge via FPX
+    - I want to load balance
+    - Deposit to wallet app
+    - Add funds instantly
+    - Top up account balance
+    - Load money to personal wallet
+    - Please add [100](amount) [dollars](currency) via PayPal
+    - Recharge [200](amount) [rupees](currency) using net banking
+    - I need to top up [50](amount) [RM](currency) right away
+    - Add [300](amount) [singapore dollars](currency) from ATM
+    - Load [400](amount) to my e-wallet
+    - Deposit [150](amount) [INR](currency) please
+    - Topup [600](amount) [yen](currency) via wire transfer
+    - Add [75](amount) to balance from credit
+    - Recharge account with [250](amount) [euros](currency)
+    - I want [500](amount) [pounds](currency) in my wallet
+    - Load [350](amount) using mobile app
+    - Please top up [800](amount) [CAD](currency)
+    - Add [120](amount) [AUD](currency) to my funds
+    - Deposit [950](amount) via direct bank
+    - Topup wallet [80](amount) [RM](currency) now
+    - Load [1500](amount) from savings
+    - Add [45](amount) [ringgit](currency) through app
+    - Recharge [300](amount) [dollars](currency) instantly
+    - I need to add [700](amount) [INR](currency) to account
+    - Top up [180](amount) [RM](currency) please
+    - Load [550](amount) [SGD](currency) into wallet
+    - Deposit [25](amount) using card
+    - Add [900](amount) [euros](currency) from bank
+    - Topup [65](amount) [pounds](currency) via transfer
+    - Please load [400](amount) to my balance
+    - Add [800](amount) [yen](currency) now
+    - Recharge wallet with [100](amount)
+    - I want to deposit [200](amount) [rupees](currency)
+    - Top up [50](amount) [RM](currency) from phone
+    - Load [300](amount) [singapore dollars](currency) quickly
+    - Add funds [400](amount) via online
+    - Deposit [150](amount) [INR](currency) to balance
+    - Please add [600](amount) [yen](currency)
+    - Topup my account [75](amount) [euros](currency)
+    - Load [250](amount) [pounds](currency) into funds
+    - I need [500](amount) [CAD](currency) added
+    - Add [350](amount) [AUD](currency) please
+    - Recharge [800](amount) via app
+    - Top up wallet [120](amount) [rupees](currency)
+    - Deposit [950](amount) [RM](currency) now
+    - Load [80](amount) from card
+    - Add [1500](amount) [dollars](currency) to wallet
+    - Please topup [45](amount) [ringgit](currency)
+    - Recharge account [300](amount) [INR](currency)
+    - I want to load [700](amount)
+    - Add [180](amount) [RM](currency) via bank
+    - Top up [550](amount) [SGD](currency) please
+    - Deposit [25](amount) [euros](currency) to account
+    - Load wallet with [900](amount)
+    - Add funds [65](amount) [pounds](currency)
+    - Please add [400](amount) [yen](currency)
+    - Topup [800](amount) now
+
+- intent: provide_information
+  examples: |
+    - [SBI Bank](bank_name)
+    - [ABC Bank](bank_name)
+    - [Maybank](bank_name)
+    - [CIMB Bank](bank_name)
+    - [Public Bank](bank_name)
+    - [savings](account_type) account
+    - [current](account_type) account
+    - my username is [john123](fpx_username)
+    - [password123](fpx_password)
+    - [user456](fpx_username) is my username
+    - my password is [mypass789](fpx_password)
+    - username [testuser](fpx_username)
+    - password [securepass](fpx_password)
+    - [100](amount)
+    - [50.50](amount)
+    - [1000](amount) ringgit
+    - [RM 250](amount)
+    - [500 RM](amount)
+    - select [SBI Bank](bank_nam
+    - choose [Maybank](bank_name)
+    - I want [ABC Bank](bank_name)
+    - use [CIMB Bank](bank_name)
+    - [Public Bank](bank_name) please
+    - bank is [SBI Bank](bank_name)
+    - I want to use [SBI Bank](bank_name)
+    - transfer money via [Maybank](bank_name)
+    - I'd like to top up from [CIMB](bank_name)
+    - use [Public Bank](bank_name) for payment
+    - add money using [ABC Bank](bank_name)
+    - can you use [S.B.I](bank_name)
+    - bank is [may bank](bank_name)  # space typo
+    - top up using [CIMB Bank](bank_name)
+
+# Add regex patterns for better entity extraction
+regex:
+- name: bank_pattern
+  examples: |
+    - (SBI|ABC|Maybank|CIMB|Public)\s*Bank
+    - Bank\s*(SBI|ABC|Maybank|CIMB|Public)
+    - (SBI|ABC|Maybank|CIMB|Public)
+
+- name: bank_pattern
+  examples: |
+    - (SBI|ABC|Maybank|CIMB|Public)\s*Bank
+    - Bank\s*(SBI|ABC|Maybank|CIMB|Public)
+
+- name: account_type_pattern
+  examples: |
+    - (savings?|current)\s*account
+    - account\s*(savings?|current)
+- name: fpx_username
+  pattern: '^\d{10}$'  # exactly 10 digits
+- name: bank_name
+  pattern: "SBI|Maybank|CIMB|Public Bank|ABC Bank"
+
+# Add this new intent to your existing nlu.yml file
+
+- intent: multicurrency_wallet
+  examples: |
+    # BUY CURRENCY EXAMPLES
+    - I want to buy [100](amount) [USD](target_currency) with my ringgit
+    - Buy [500](amount) [dollar](target_currency) from my RM
+    - Convert [1000](amount) [RM](source_currency) to [USD](target_currency)
+    - Exchange [250](amount) ringgit to [euro](target_currency)
+    - I need to buy [fifty](amount) [GBP](target_currency)
+    - Purchase [two hundred](amount) [dollar](target_currency) with ringgit
+    - Convert my [500](amount) [RM](source_currency) to [japanese yen](target_currency)
+    - I want to exchange [300](amount) ringgit for [SGD](target_currency)
+    - Buy [one thousand](amount) [EUR](target_currency) using my wallet
+    - Exchange [150](amount) [RM](source_currency) to [british pound](target_currency)
+    - Convert [800](amount) ringgit to [AUD](target_currency)
+    - I need [seventy five](amount) [USD](target_currency) from my ringgit
+    - Purchase [400](amount) [singapore dollar](target_currency) with RM
+    - Buy foreign currency [200](amount) [euro](target_currency)
+    - I want to get [600](amount) [JPY](target_currency) from ringgit
+    - Exchange my money to [300](amount) [dollar](target_currency)
+    - Convert ringgit to [250](amount) [GBP](target_currency)
+    - Buy [nine hundred](amount) [AUD](target_currency) with my RM
+    - I need to purchase [100](amount) [CHF](target_currency)
+    - Exchange [500](amount) [RM](source_currency) for [USD](target_currency)
+    - Convert my wallet money to [200](amount) [euro](target_currency)
+    - I want to buy [one hundred fifty](amount) [SGD](target_currency)
+    - Purchase [700](amount) [dollar](target_currency) from ringgit
+    - Buy [eighty](amount) [GBP](target_currency) using RM
+    - Exchange ringgit for [350](amount) [japanese yen](target_currency)
+    - Convert [450](amount) [RM](source_currency) to [AUD](target_currency)
+    - I need to get [120](amount) [EUR](target_currency)
+    - Buy [six hundred](amount) [USD](target_currency) with my ringgit balance
+    - Exchange my [250](amount) ringgit to [singapore dollar](target_currency)
+    - Convert [900](amount) [RM](source_currency) to [CHF](target_currency)
+
+    # SELL CURRENCY EXAMPLES  
+    - I want to sell [100](amount) [USD](source_currency) for ringgit
+    - Sell my [50](amount) [dollar](source_currency) to RM
+    - Convert [200](amount) [EUR](source_currency) back to ringgit
+    - Exchange [150](amount) [GBP](source_currency) to RM
+    - I need to sell [seventy five](amount) [USD](source_currency)
+    - Convert my [300](amount) [euro](source_currency) to ringgit
+    - Sell [250](amount) [SGD](source_currency) for RM
+    - Exchange [400](amount) [japanese yen](source_currency) to ringgit
+    - I want to convert [80](amount) [AUD](source_currency) back to RM
+    - Sell foreign currency [120](amount) [dollar](source_currency)
+    - Convert [500](amount) [JPY](source_currency) to ringgit
+    - Exchange my [90](amount) [british pound](source_currency) for RM
+    - Sell [180](amount) [EUR](source_currency) to ringgit
+    - Convert [350](amount) [singapore dollar](source_currency) back to RM
+    - I need to sell [60](amount) [CHF](source_currency)
+    - Exchange [220](amount) [USD](source_currency) for ringgit
+    - Sell my [140](amount) [GBP](source_currency) to RM
+    - Convert [480](amount) [AUD](source_currency) to ringgit
+    - I want to sell [95](amount) [euro](source_currency)
+    - Exchange [330](amount) [dollar](source_currency) back to RM
+    - Sell [270](amount) [JPY](source_currency) for ringgit
+    - Convert my [160](amount) [SGD](source_currency) to RM
+    - I need to exchange [420](amount) [USD](source_currency) for ringgit
+    - Sell [190](amount) [EUR](source_currency) back to RM
+    - Convert [310](amount) [british pound](source_currency) to ringgit
+
+    # GENERAL CURRENCY EXCHANGE WITHOUT SPECIFIC AMOUNTS
+    - I want to buy USD with ringgit
+    - Sell my dollars for RM  
+    - Convert ringgit to euro
+    - Exchange my RM to USD
+    - I need to buy foreign currency
+    - Sell my foreign currency
+    - Convert my currency to ringgit
+    - Exchange dollars to RM
+    - I want to buy euro
+    - Sell my EUR for ringgit
+    - Convert GBP to RM
+    - Exchange SGD for ringgit
+    - Buy japanese yen
+    - Sell my AUD
+    - Convert CHF to ringgit
+    - Exchange currency
+    - I need currency exchange
+    - Buy foreign money
+    - Sell foreign money
+    - Convert my money
+
+    # CHECKING RATES AND CURRENCY WALLET
+    - What's the exchange rate for USD?
+    - Check euro exchange rate
+    - Show me GBP rate today
+    - What's the current USD rate?
+    - Display exchange rates
+    - I want to see currency rates
+    - Check my foreign currency balance
+    - Show my USD balance
+    - What euros do I have?
+    - Display my currency wallet
+    - Check my foreign money
+    - Show all my currencies
+    - What's my dollar balance?
+    - Display currency holdings
+    - Check exchange rates for today
+
+    # MIXED LANGUAGE (MALAY-ENGLISH) - Common in Malaysia
+    - Saya nak beli [100](amount) [USD](target_currency) dengan ringgit
+    - Jual [50](amount) [dollar](source_currency) saya untuk RM
+    - Tukar [200](amount) ringgit kepada [euro](target_currency)
+    - I want to beli [150](amount) [USD](target_currency)
+    - Jual my [80](amount) [dollar](source_currency) to ringgit
+    - Convert [300](amount) RM ke [SGD](target_currency)
+
+    # ALTERNATIVE PHRASINGS
+    - Trade ringgit for USD
+    - Swap my RM to euro
+    - Change ringgit to dollars
+    - Turn my RM into GBP
+    - Get USD with my ringgit
+    - Cash out my dollars to RM
+    - Liquidate my EUR to ringgit
+    - Redeem my foreign currency
+    - Trade my USD back to RM
+    - Swap dollars for ringgit
+
+# Additional entities to add to your entities section:
+entities:
+  - amount
+  - currency
+  - source_currency  # The currency user currently has
+  - target_currency  # The currency user wants to get
+  - bank_name
+  - account_type
+  - fpx_username
+  - fpx_password
+
+# Enhanced synonyms for currencies:
+synonyms:
+  - synonym: USD
+    examples: |
+      - dollar
+      - dollars
+      - US dollar
+      - US dollars
+      - american dollar
+      - USD
+      - usd
+      - $
+      
+  - synonym: EUR
+    examples: |
+      - euro
+      - euros
+      - european euro
+      - EUR
+      - eur
+      - €
+      
+  - synonym: GBP
+    examples: |
+      - pound
+      - pounds
+      - british pound
+      - british pounds
+      - sterling
+      - pound sterling
+      - GBP
+      - gbp
+      - £
+      
+  - synonym: SGD
+    examples: |
+      - singapore dollar
+      - singapore dollars
+      - SGD
+      - sgd
+      - sing dollar
+      
+  - synonym: JPY
+    examples: |
+      - yen
+      - japanese yen
+      - japan yen
+      - JPY
+      - jpy
+      - ¥
+      
+  - synonym: AUD
+    examples: |
+      - australian dollar
+      - australian dollars
+      - aussie dollar
+      - AUD
+      - aud
+      
+  - synonym: CHF
+    examples: |
+      - swiss franc
+      - swiss francs
+      - franc
+      - CHF
+      - chf
+      
+  - synonym: RM
+    examples: |
+      - ringgit
+      - ringgit malaysia
+      - malaysian ringgit
+      - RM
+      - rm
+      - MYR
+      - myr
+
+   # SINGLE DIGITS
+  - synonym: "1"
+    examples: |
+      - one
+      - One
+  
+  - synonym: "2"
+    examples: |
+      - two
+      - Two
+  
+  - synonym: "3"
+    examples: |
+      - three
+      - Three
+  
+  - synonym: "4"
+    examples: |
+      - four
+      - Four
+  
+  - synonym: "5"
+    examples: |
+      - five
+      - Five
+  
+  - synonym: "6"
+    examples: |
+      - six
+      - Six
+  
+  - synonym: "7"
+    examples: |
+      - seven
+      - Seven
+  
+  - synonym: "8"
+    examples: |
+      - eight
+      - Eight
+  
+  - synonym: "9"
+    examples: |
+      - nine
+      - Nine
+
+  # TENS
+  - synonym: "10"
+    examples: |
+      - ten
+      - Ten
+  
+  - synonym: "20"
+    examples: |
+      - twenty
+      - Twenty
+  
+  - synonym: "30"
+    examples: |
+      - thirty
+      - Thirty
+  
+  - synonym: "40"
+    examples: |
+      - forty
+      - Forty
+  
+  - synonym: "50"
+    examples: |
+      - fifty
+      - Fifty
+  
+  - synonym: "60"
+    examples: |
+      - sixty
+      - Sixty
+  
+  - synonym: "70"
+    examples: |
+      - seventy
+      - Seventy
+  
+  - synonym: "80"
+    examples: |
+      - eighty
+      - Eighty
+  
+  - synonym: "90"
+    examples: |
+      - ninety
+      - Ninety
+
+  # HUNDREDS
+  - synonym: "100"
+    examples: |
+      - one hundred
+      - hundred
+      - One hundred
+      - Hundred
+  
+  - synonym: "200"
+    examples: |
+      - two hundred
+      - Two hundred
+  
+  - synonym: "300"
+    examples: |
+      - three hundred
+      - Three hundred
+  
+  - synonym: "400"
+    examples: |
+      - four hundred
+      - Four hundred
+  
+  - synonym: "500"
+    examples: |
+      - five hundred
+      - Five hundred
+  
+  - synonym: "600"
+    examples: |
+      - six hundred
+      - Six hundred
+  
+  - synonym: "700"
+    examples: |
+      - seven hundred
+      - Seven hundred
+  
+  - synonym: "800"
+    examples: |
+      - eight hundred
+      - Eight hundred
+  
+  - synonym: "900"
+    examples: |
+      - nine hundred
+      - Nine hundred
+
+  # COMMON COMPOUND NUMBERS
+  - synonym: "150"
+    examples: |
+      - one hundred fifty
+      - hundred fifty
+      - One hundred fifty
+  
+  - synonym: "250"
+    examples: |
+      - two hundred fifty
+      - Two hundred fifty
+  
+  - synonym: "355"
+    examples: |
+      - three hundred fifty five
+      - Three hundred fifty five
+  
+  - synonym: "450"
+    examples: |
+      - four hundred fifty
+      - Four hundred fifty
+  
+  - synonym: "550"
+    examples: |
+      - five hundred fifty
+      - Five hundred fifty
+
+  # THOUSANDS
+  - synonym: "1000"
+    examples: |
+      - one thousand
+      - thousand
+      - One thousand
+      - Thousand
+  
+  - synonym: "2000"
+    examples: |
+      - two thousand
+      - Two thousand
+  
+  - synonym: "3000"
+    examples: |
+      - three thousand
+      - Three thousand
+  
+  - synonym: "5000"
+    examples: |
+      - five thousand
+      - Five thousand
+  
+  - synonym: "10000"
+    examples: |
+      - ten thousand
+      - Ten thousand
+
+  # COMMON COMPOUND THOUSANDS
+  - synonym: "1500"
+    examples: |
+      - one thousand five hundred
+      - fifteen hundred
+      - One thousand five hundred
+      - Fifteen hundred
+  
+  - synonym: "2500"
+    examples: |
+      - two thousand five hundred
+      - twenty five hundred
+      - Two thousand five hundred
+  
+  - synonym: "3500"
+    examples: |
+      - three thousand five hundred
+      - thirty five hundred
+      - Three thousand five hundred
+
+  # TEENS (11-19)
+  - synonym: "11"
+    examples: |
+      - eleven
+      - Eleven
+  
+  - synonym: "12"
+    examples: |
+      - twelve
+      - Twelve
+  
+  - synonym: "13"
+    examples: |
+      - thirteen
+      - Thirteen
+  
+  - synonym: "14"
+    examples: |
+      - fourteen
+      - Fourteen
+  
+  - synonym: "15"
+    examples: |
+      - fifteen
+      - Fifteen
+  
+  - synonym: "16"
+    examples: |
+      - sixteen
+      - Sixteen
+  
+  - synonym: "17"
+    examples: |
+      - seventeen
+      - Seventeen
+  
+  - synonym: "18"
+    examples: |
+      - eighteen
+      - Eighteen
+  
+  - synonym: "19"
+    examples: |
+      - nineteen
+      - Nineteen
+
+  # COMMON TWENTY COMPOUNDS
+  - synonym: "25"
+    examples: |
+      - twenty five
+      - Twenty five
+  
+  - synonym: "35"
+    examples: |
+      - thirty five
+      - Thirty five
+  
+  - synonym: "45"
+    examples: |
+      - forty five
+      - Forty five
+  
+  - synonym: "55"
+    examples: |
+      - fifty five
+      - Fifty five
+  
+  - synonym: "65"
+    examples: |
+      - sixty five
+      - Sixty five
+  
+  - synonym: "75"
+    examples: |
+      - seventy five
+      - Seventy five
+  
+  - synonym: "85"
+    examples: |
+      - eighty five
+      - Eighty five
+  
+  - synonym: "95"
+    examples: |
+      - ninety five
+      - Ninety five
+
+  - synonym: SBI Bank
+    examples: |
+      - SBI
+      - State Bank of India
+      - sbi bank
+
+  - synonym: ABC Bank
+    examples: |
+      - ABC
+      - abc bank
+
+  - synonym: savings
+    examples: |
+      - saving
+      - savings account
+      - saving account
+
+  - synonym: current
+    examples: |
+      - current account

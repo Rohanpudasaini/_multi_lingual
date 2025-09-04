@@ -349,7 +349,7 @@ async def lifespan(app: FastAPI):
             COLLECT_CHUNKS = None
 
         logger.info("Loading Rasa NLU model...")
-        NLU_MODEL_PATH = "models/nlu_two_intent_classifier.tar.gz"
+        NLU_MODEL_PATH = "models/new_two_nlu_intent_classification.tar.gz"
         if not os.path.exists(NLU_MODEL_PATH):
             logger.error(f"❌ Rasa model file not found at {NLU_MODEL_PATH}")
             NLU_PROCESSOR = None
