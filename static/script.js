@@ -298,7 +298,13 @@ console.log("Hello I have entered!!!")
  */
 function connectWebSocket() {
     // const wsUrl = `ws://127.0.0.1:8000//ws/${clientId}`;
-    const wsUrl = `ws://127.0.0.1:8001/ws/${clientId}`;
+    // const wsUrl = `ws://127.0.0.1:8001/ws/${clientId}`;
+    // const wsUrl = `ws://localhost:8000/ws/${clientId}`;
+    // websocket = new WhostebSocket(wsUrl);
+
+    const wsProtocol = window.location.protocol === 'https:' ? 'wss:' : 'ws:';
+    const wsHost = window.location.host; 
+    const wsUrl = `${wsProtocol}//${wsHost}/ws/${clientId}`;
     websocket = new WebSocket(wsUrl);
     
     websocket.onopen = () => {

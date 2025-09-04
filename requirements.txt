@@ -223,5 +223,6 @@ wrapt==1.14.2
 wsproto==1.2.0
 xxhash==3.5.0
 yarl==1.20.1
+argostranslate==1.9.6
+faster-whisper==1.2.0
 spacy
-PyAudio
